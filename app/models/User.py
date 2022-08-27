@@ -1,4 +1,3 @@
-from enum import unique
 from app.db import declarative_base
 from sqlalchemy import Column, Integer, String
 
