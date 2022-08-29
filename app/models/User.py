@@ -1,4 +1,4 @@
-from app.db import declarative_base
+from app.db import Base
 from sqlalchemy import Column, Integer, String
 
 class User(Base):
