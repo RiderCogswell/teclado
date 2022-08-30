@@ -3,6 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
+from flask import g # global variable
 
 load_dotenv()
 
@@ -15,4 +16,8 @@ def init_db():
   Base.metadata.create_all(engine)
 
 def get_db():
-  return Session()
+  if 'db' not in g:
+    # store db connection in app context
+    g.db = Session()
+
+  return g.db # return session wrapped in global object, instead of creating a new session each time
