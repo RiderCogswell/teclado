@@ -18,14 +18,14 @@ def init_db(app):
   app.teardown_appcontext(close_db)
 
 def get_db():
-  if 'db' not in g:
+  if 'db' not in g: 
     # store db connection in app context
     g.db = Session()
 
   return g.db # return session wrapped in global object, instead of creating a new session each time
 
 def close_db(e=None):
-  db = g.pop('db', None)
+  db = g.pop('db', None) # attempts to find and remove db from global object
 
   if db is not None:
     db.close()
