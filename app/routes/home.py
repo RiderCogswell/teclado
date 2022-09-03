@@ -1,3 +1,4 @@
+from pdb import post_mortem
 from flask import Blueprint, render_template
 from app.models import Post
 from app.db import get_db
@@ -26,4 +27,11 @@ def login():
 
 @bp.route('/post/<id>')
 def single(id):
-  return render_template('single-post.html')
+  db = get_db()
+  post = db.query(Post).filter(Post.id == id).one() # return one
+
+  # render single post template
+  return render_template(
+    'single-post.html',
+    post=post # pass single post in
+  )
