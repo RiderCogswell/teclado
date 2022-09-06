@@ -1,7 +1,8 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from app.models import User
 from app.models import User
 from app.db import get_db
+import sys
 
 bp = Blueprint('api', __name__, url_prefix='/api')
 
@@ -10,13 +11,20 @@ def signup():
   data = request.get_json()
   db = get_db() # connect to database
   
-  newUser = User(
-    username = data['username'], # dictionaries in python cannot be accessed like objects, must use bracket notation
-    email = data['email'],
-    password = data['password']
-  )
+  try:
+    newUser = User(
+      username = data['username'], # dictionaries in python cannot be accessed like objects, must use bracket notation
+      email = data['email'],
+      password = data['password']
+    )
 
-  db.add(newUser)
-  db.commit() # add and then commit newUser
+    db.add(newUser)
+    db.commit() # add and then commit newUser
+  except:
+    # insert failed, send error to front end
+    print(sys.exc_info()[0])
 
-  return ''
+    db.rollback() # if insert failed, rollback commit (to avoid a crashed app)
+    return jsonify(message = 'Signup failed'), 500 # and send error to front end
+
+  return jsonify(id = newUser.id)
