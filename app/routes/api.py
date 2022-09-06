@@ -1,3 +1,4 @@
+from email import message
 from flask import Blueprint, request, jsonify, session
 from app.models import User
 from app.models import User
@@ -32,6 +33,25 @@ def signup():
   session['user_id'] = newUser.id # save user data in session
   session['loggedIn'] = True # set logged in to true, for conditional rendering
   return jsonify(id = newUser.id)
+
+@bp.route('/users/login', methods=['POST'])
+def login():
+  data = request.get_json()
+  db = get_db()
+
+  try:
+    user = db.query(User).filter(User.email == data['email']).one()
+  except:
+    print(sys.exc_info()[0])
+
+    if user.verify_pw(data['password']) == False: # data['password'] is used as the pw argument in verify_pw func because self has already reserved the first spot
+      return jsonify(message = 'Incorrect credentials'), 400
+
+  session.clear()
+  session['user-id'] = user.id
+  session['loggedIn'] = True
+
+  return jsonify(id = user.id)
 
 @bp.route('/users/logout', methods=['POST'])
 def logout():
