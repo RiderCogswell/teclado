@@ -75,7 +75,7 @@ def comment():
   except:
     print(sys.exc_info()[0])
 
-    db.rollback()
+    db.rollback() # will rollback any commits if failure occurs
     return jsonify(message = 'Comment failed'), 500
   
   return jsonify(id = newComment.id)
