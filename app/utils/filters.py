@@ -9,12 +9,3 @@ def format_plural(amount, word):
     return word + 's'
   
   return word
-
-from datetime import datetime
-print(format_date(datetime.now()))
-
-print(format_url('http://google.com/test/'))
-print(format_url('https://www.google.com?q=test'))
-
-print(format_plural(2, 'cat'))
-print(format_plural(1, 'dog'))
