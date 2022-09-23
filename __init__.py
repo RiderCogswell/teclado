@@ -1,7 +1,7 @@
 from flask import Flask
 from .routes import home, dashboard, api # or app.routes, same thing
-from app.db import init_db
-from app.utils import filters
+from db import init_db
+from utils import filters
 
 def create_app(test_config=None):
   # setup config

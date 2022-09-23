@@ -1,5 +1,5 @@
 from datetime import datetime
-from app.db import Base
+from db import Base
 from .Vote import Vote
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, select, func
 from sqlalchemy.orm import relationship, column_property

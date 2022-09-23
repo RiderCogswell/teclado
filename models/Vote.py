@@ -1,4 +1,4 @@
-from app.db import Base
+from db import Base
 from sqlalchemy import Column, Integer, ForeignKey
 
 class Vote(Base):
