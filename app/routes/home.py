@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, session, redirect
-from models import Post
-from db import get_db
+from app.models import Post
+from app.db import get_db
 
 bp = Blueprint('home', __name__, url_prefix='/')
 

@@ -1,10 +1,7 @@
-from crypt import methods
-from email import message
-from turtle import title
 from flask import Blueprint, request, jsonify, session
-from models import User, Post, Comment, Vote
-from db import get_db
-from utils.auth import login_required
+from app.models import User, Post, Comment, Vote
+from app.db import get_db
+from app.utils.auth import login_required
 import sys
 
 
