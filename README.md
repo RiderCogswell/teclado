@@ -1,7 +1,7 @@
 # Teclado 
 
 ## Description
-Professional SM app built with Python3, Flask, Socket.io, Vanilla JavaScript, handlebars and more! Fill out your information and start posting!
+Professional Technology News app built with Python3, Flask, Socket.io, Vanilla JavaScript, handlebars and more! Fill out your information and start posting!
 
 ## Deployed Application 
 [Teclado](https://teclado.herokuapp.com/)

@@ -5,9 +5,9 @@
     <span>({{post.post_url|format_url}})</span> 
   </div>
   <div class="meta">
-    {{post.vote_count}} {{post.vote_count|format_plural('point')}} by {{post.user.username}} on {{post.created_at|format_date}}
+    {{post.vote_count}} {{post.vote_count|format_plural('gusto')}} por {{post.user.username}} en {{post.created_at|format_date}}
     |
     <!-- weird syntax around the length is just how Jinja shows the length of an array -->
-    <a href="/post/{{post.id}}">{{post.comments|length}} {{post.comments|length|format_plural('comment')}}</a> 
+    <a href="/post/{{post.id}}">{{post.comments|length}} {{post.comments|length|format_plural('comentario')}}</a> 
   </div>
 </article>
