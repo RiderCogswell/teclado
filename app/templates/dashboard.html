@@ -2,15 +2,15 @@
 
 {% block body %}
 <section>
-  <h2>Create New Post</h2>
+  <h2>Crear Nueva Publicación</h2>
 
   <form class="new-post-form">
     <div>
-      <label for="post-title">Title</label>
+      <label for="post-title">Título</label>
       <input type="text" id="post-title" name="post-title" />
     </div>
     <div>
-      <label for="post-url">Link</label>
+      <label for="post-url">Enlace</label>
       <input id="post-url" name="post-url" />
     </div>
     <button type="submit" class="btn">Crear</button>
@@ -19,12 +19,12 @@
 
 {% if posts|length > 0 %}
 <section>
-  <h2>Tus publicaciones</h2>
+  <h2>Tus Publicaciones</h2>
   <ol>
     {% for post in posts %}
     <li>
       {% include "partials/post-info.html" %}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Editar Publicación</a>
     </li>
     {% endfor %}
   </ol>

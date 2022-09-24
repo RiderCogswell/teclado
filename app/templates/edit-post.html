@@ -2,9 +2,9 @@
 
 {% block body %}
 <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <a href="/dashboard"> &larr; Volver al Tablero</a>
   <h2>
-    Edit Post
+    Editar Publicación
   </h2>
   <form class="edit-post-form">
     <div>
@@ -12,12 +12,12 @@
       <span>({{post.post_url|format_url}})</span>
     </div>
     <div>
-      {{post.vote_count}} {{post.vote_count|format_plural('point')}} by you on {{post.created_at|format_date}}
+      {{post.vote_count}} {{post.vote_count|format_plural('gusto')}} por ti en {{post.created_at|format_date}}
       |
       <a href="/post/{{post.id}}">{{post.comments|length}} {{post.comments|length|format_plural('comment')}}</a>
     </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+    <button type="submit">Guardar Publicación</button>
+    <button type="button" class="delete-post-btn">Eliminar Publicación</button>
   </form>
 </article>
 
@@ -27,7 +27,7 @@
   </div>
 
   <div>
-    <button type="submit">add comment</button>
+    <button type="submit">Agregar Comentario</button>
   </div>
 </form>
 
