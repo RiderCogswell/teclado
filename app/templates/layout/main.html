@@ -16,10 +16,10 @@
       </h1>
       <nav>
         {% if loggedIn == True %}
-        <a href="/dashboard">Dashboard</a>
-        <button id="logout" class="btn-no-style">Logout</button>
+        <a href="/dashboard">Tablero</a>
+        <button id="logout" class="btn-no-style">Cerrar Sesión</button>
         {% else %}
-        <a href="/login">Login</a>
+        <a href="/login">Acceso</a>
         {% endif %}
       </nav>
     </header>
@@ -27,7 +27,7 @@
       {% block body %}{% endblock %}
     </main>
     <footer>
-      Thanks for visiting!
+      ¡Gracias por visitar!
     </footer>
   </div>
   
