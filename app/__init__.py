@@ -1,5 +1,5 @@
 from flask import Flask
-from app.routes import home, dashboard, api # or app.routes, same thing
+from app.routes import home, dashboard, api # or .routes, same thing
 from app.db import init_db
 from app.utils import filters
 

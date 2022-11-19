@@ -3,7 +3,6 @@ from app.models import Post
 from app.db import get_db
 from app.utils.auth import login_required
 
-
 bp = Blueprint('dashboard', __name__, url_prefix='/dashboard') # just sets the beginning of the url
 
 @bp.route('/')

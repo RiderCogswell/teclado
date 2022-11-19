@@ -4,8 +4,6 @@ from app.db import get_db
 from app.utils.auth import login_required
 import sys
 
-
-
 bp = Blueprint('api', __name__, url_prefix='/api')
 
 @bp.route('/users', methods=['POST'])
